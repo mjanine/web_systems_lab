@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
+import About from './components/About';
 import ProjectCard from './components/ProjectCard';
 
 export default function App() {
@@ -58,6 +59,8 @@ export default function App() {
           title="Backend Developer | Future Data Scientist"
           summary="I build dependable digital solutions with a strong interest in backend architecture, data-driven insights, and user-centered product thinking."
         />
+
+        <About />
 
         <section style={styles.heroCard}>
           <div style={styles.heroContent}>
@@ -257,38 +260,5 @@ const styles = {
     gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
     gap: '1.2rem',
     marginBottom: '2.5rem',
-  },
-  contactSection: {
-    borderTop: '1px solid #e5e7eb',
-    paddingTop: '1.6rem',
-    marginBottom: '2rem',
-  },
-  contactCard: {
-    padding: '1.25rem 1.4rem',
-    backgroundColor: '#FFFFFF',
-    borderRadius: '16px',
-    border: '1px solid #E5E7EB',
-    boxShadow: '0 12px 30px rgba(15, 23, 42, 0.06)',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-  },
-  contactItem: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.2rem',
-  },
-  contactLabel: {
-    fontSize: '0.72rem',
-    fontWeight: '700',
-    color: '#6B7280',
-    textTransform: 'uppercase',
-    letterSpacing: '0.12em',
-  },
-  contactLink: {
-    color: '#090D16',
-    fontSize: '0.95rem',
-    textDecoration: 'none',
-    fontWeight: '600',
   },
 };
