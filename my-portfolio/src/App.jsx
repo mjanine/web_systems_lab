@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react'
 import './App.css'
-import backgroundImage from './bg1.jpg'
+import backgroundVideo from './bg.mp4'
 import instagramIcon from './instagram.png'
 import messengerIcon from './messenger.png'
 import slideButtonIcon from './slidebutton.png'
+import profileImage from './me.png'
 import pythosentryImage from './Pythosentry.png'
 
 const markSquares = [
@@ -36,13 +38,31 @@ const contactLinks = [
 ]
 
 export default function App() {
+	const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
+
+	useEffect(() => {
+		if (!isProfileModalOpen) {
+			return undefined
+		}
+
+		const handleKeyDown = (event) => {
+			if (event.key === 'Escape') {
+				setIsProfileModalOpen(false)
+			}
+		}
+
+		window.addEventListener('keydown', handleKeyDown)
+
+		return () => window.removeEventListener('keydown', handleKeyDown)
+	}, [isProfileModalOpen])
+
 	return (
-		<main
-			className="portfolio-page"
-			style={{
-				backgroundImage: `linear-gradient(rgba(255, 241, 228, 0.05), rgba(255, 241, 228, 0.28)), url(${backgroundImage})`,
-			}}
-		>
+		<main className="portfolio-page">
+			<video className="portfolio-page__background-video" autoPlay muted loop playsInline aria-hidden="true">
+				<source src={backgroundVideo} type="video/mp4" />
+			</video>
+			<div className="portfolio-page__background-overlay" aria-hidden="true" />
+
 			<section className="portfolio-hero" aria-label="Portfolio cover">
 				<div className="portfolio-hero__topbar" aria-hidden="true">
 					<span className="portfolio-hero__line" />
@@ -120,8 +140,8 @@ export default function App() {
 							<button
 								type="button"
 								className="contact-section__icon-link contact-section__icon-link--button"
-								aria-label="Back to top"
-								onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+								aria-label="Open profile bio modal"
+								onClick={() => setIsProfileModalOpen(true)}
 							>
 								<img className="contact-section__icon" src={slideButtonIcon} alt="" />
 							</button>
@@ -131,17 +151,52 @@ export default function App() {
 							<h2 className="contact-section__title">CONTACT DETAILS</h2>
 							<div className="contact-section__links">
 								<a href="https://www.linkedin.com/in/janine-sola/" target="_blank" rel="noreferrer">
-									Janine Sola | Linked
+									Janine Sola | LinkedIn
 								</a>
 								<a href="mailto:janinemariela03@gmail.com">janinemariela03@gmail.com | Gmail</a>
 								<a href="https://github.com/mjanine" target="_blank" rel="noreferrer">
-									mjanine | Github
+									mjanine | GitHub
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</footer>
+
+			{isProfileModalOpen && (
+				<div className="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-modal__title">
+					<button
+						type="button"
+						className="profile-modal__backdrop"
+						aria-label="Close profile bio modal"
+						onClick={() => setIsProfileModalOpen(false)}
+					/>
+					<div className="profile-modal__panel">
+						<button
+							type="button"
+							className="profile-modal__close"
+							aria-label="Close modal"
+							onClick={() => setIsProfileModalOpen(false)}
+						>
+							×
+						</button>
+						<div className="profile-modal__image-wrap">
+							<img className="profile-modal__image" src={profileImage} alt="Sola Mariella Janine A." />
+						</div>
+						<div className="profile-modal__content">
+							<h2 id="profile-modal__title" className="profile-modal__title">
+								Sola Mariella Janine A.
+							</h2>
+							<p className="profile-modal__bio">
+								Aspiring Data Analyst who turns raw data into meaningful insights and builds
+								data-driven tools that support smarter decision-making. Currently growing in Data
+								Analytics, Visualization, and Applied AI, with hands-on experience across multiple
+								analytics platforms.
+							</p>
+						</div>
+					</div>
+				</div>
+			)}
 		</main>
 	)
 }
