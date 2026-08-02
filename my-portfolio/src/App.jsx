@@ -6,22 +6,13 @@ import messengerIcon from './messenger.png'
 import slideButtonIcon from './slidebutton.png'
 import profileImage from './me.png'
 import pythosentryImage from './Pythosentry.png'
+import CornerWheel from './components/cornerwheel'
 
 const markSquares = [
 	'portfolio-mark__square--top-left',
 	'portfolio-mark__square--top-right',
 	'portfolio-mark__square--bottom-left',
 	'portfolio-mark__square--bottom-right',
-]
-
-const certifications = [
-	'Linux Essentials Issued by Cisco',
-	'Operating Systems Basics Cisco',
-	'Introduction to Cybersecurity',
-	'IT Specialist - Networking',
-	'Information Technology Specialist in Networking',
-	'IC3 Digital Literacy Certification GS6 Level 1',
-	'IC3 GS6 Level 1',
 ]
 
 const contactLinks = [
@@ -106,19 +97,7 @@ export default function App() {
 				</div>
 			</section>
 
-			<section className="certifications" aria-label="Certifications">
-				<div className="certifications__inner">
-					<h2 className="certifications__title">CERTIFICATIONS</h2>
-
-					<div className="certifications__grid">
-						{certifications.map((certification) => (
-							<div key={certification} className="certifications__pill">
-								<span>{certification}</span>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
+			<CornerWheel />
 
 			<footer className="contact-section" aria-label="About me contact details">
 				<div className="contact-section__frame">
