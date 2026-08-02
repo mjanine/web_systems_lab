@@ -1,9 +1,6 @@
 import './App.css'
 import backgroundImage from './bg1.jpg'
-import ProjectCard from './components/projectCard'
-import phytosentryImage from './Phytosentry.png'
-import sambastImage from './sambast.png'
-import employeeSystemImage from './Employeerecords.jpg'
+import pythosentryImage from './Pythosentry.png'
 
 const markSquares = [
 	'portfolio-mark__square--top-left',
@@ -12,33 +9,12 @@ const markSquares = [
 	'portfolio-mark__square--bottom-right',
 ]
 
-const projects = [
-	{
-		image: phytosentryImage,
-		year: '2026',
-		title: 'PythoSentry',
-		description: 'Plant Disease Detection',
-	},
-	{
-		image: sambastImage,
-		year: '2025',
-		title: 'Sambast',
-		description: 'Ordering System',
-	},
-	{
-		image: employeeSystemImage,
-		year: '2025',
-		title: 'Employee System',
-		description: 'Perpetual Employee System',
-	},
-]
-
 export default function App() {
 	return (
 		<main
 			className="portfolio-page"
 			style={{
-				backgroundImage: `linear-gradient(rgba(255, 241, 228, 0.52), rgba(255, 241, 228, 0.28)), url(${backgroundImage})`,
+				backgroundImage: `linear-gradient(rgba(255, 241, 228, 0.05), rgba(255, 241, 228, 0.28)), url(${backgroundImage})`,
 			}}
 		>
 			<section className="portfolio-hero" aria-label="Portfolio cover">
@@ -59,16 +35,27 @@ export default function App() {
 				</div>
 			</section>
 
-			<section className="project-gallery" aria-labelledby="work-in-progress-title">
-				<div className="project-gallery__inner">
-					<h2 id="work-in-progress-title" className="project-gallery__title">
-						Work in progress
-					</h2>
+			<section className="project-detail" aria-label="Project detail">
+				<div className="project-detail__content">
+					<div className="project-detail__text">
+						<h2 className="project-detail__title">PYTHOSENTRY</h2>
+						<p className="project-detail__description">
+							PhytoSentry is a mobile application designed for farmers and agricultural workers
+							to instantly diagnose plant diseases, especially coffee leaf conditions, using
+							computer vision and TensorFlow Lite machine learning models. It provides real-time
+							camera analysis, a disease catalog, and a scan history tracker to help monitor crop
+							health and improve yields.
+						</p>
+					</div>
 
-					<div className="project-gallery__grid">
-						{projects.map((project) => (
-							<ProjectCard key={project.title} {...project} />
-						))}
+					<div className="project-detail__mockup">
+						<div className="project-detail__mockup-frame">
+							<img
+								className="project-detail__mockup-image"
+								src={pythosentryImage}
+								alt="PythoSentry mobile app preview"
+							/>
+						</div>
 					</div>
 				</div>
 			</section>
