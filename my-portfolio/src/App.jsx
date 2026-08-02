@@ -9,6 +9,16 @@ const markSquares = [
 	'portfolio-mark__square--bottom-right',
 ]
 
+const certifications = [
+	'Linux Essentials Issued by Cisco',
+	'Operating Systems Basics Cisco',
+	'Introduction to Cybersecurity',
+	'IT Specialist - Networking',
+	'Information Technology Specialist in Networking',
+	'IC3 Digital Literacy Certification GS6 Level 1',
+	'IC3 GS6 Level 1',
+]
+
 export default function App() {
 	return (
 		<main
@@ -20,7 +30,7 @@ export default function App() {
 			<section className="portfolio-hero" aria-label="Portfolio cover">
 				<div className="portfolio-hero__topbar" aria-hidden="true">
 					<span className="portfolio-hero__line" />
-					<span className="portfolio-hero__label">ABOUT ME</span>
+					<span className="portfolio-hero__label"></span>
 				</div>
 
 				<div className="portfolio-mark" aria-hidden="true">
@@ -56,6 +66,20 @@ export default function App() {
 								alt="PythoSentry mobile app preview"
 							/>
 						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className="certifications" aria-label="Certifications">
+				<div className="certifications__inner">
+					<h2 className="certifications__title">CERTIFICATIONS</h2>
+
+					<div className="certifications__grid">
+						{certifications.map((certification) => (
+							<div key={certification} className="certifications__pill">
+								<span>{certification}</span>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
