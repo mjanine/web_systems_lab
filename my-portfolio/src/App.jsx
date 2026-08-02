@@ -1,5 +1,8 @@
 import './App.css'
 import backgroundImage from './bg1.jpg'
+import instagramIcon from './instagram.png'
+import messengerIcon from './messenger.png'
+import slideButtonIcon from './slidebutton.png'
 import pythosentryImage from './Pythosentry.png'
 
 const markSquares = [
@@ -17,6 +20,19 @@ const certifications = [
 	'Information Technology Specialist in Networking',
 	'IC3 Digital Literacy Certification GS6 Level 1',
 	'IC3 GS6 Level 1',
+]
+
+const contactLinks = [
+	{
+		label: 'Instagram',
+		href: 'https://www.instagram.com/yela.sl/',
+		icon: instagramIcon,
+	},
+	{
+		label: 'Facebook',
+		href: 'https://www.facebook.com/yella011/',
+		icon: messengerIcon,
+	},
 ]
 
 export default function App() {
@@ -83,6 +99,49 @@ export default function App() {
 					</div>
 				</div>
 			</section>
+
+			<footer className="contact-section" aria-label="About me contact details">
+				<div className="contact-section__frame">
+					<div className="contact-section__background">
+						<div className="contact-section__icons">
+							{contactLinks.map((link) => (
+								<a
+									key={link.label}
+									className="contact-section__icon-link"
+									href={link.href}
+									target="_blank"
+									rel="noreferrer"
+									aria-label={link.label}
+								>
+									<img className="contact-section__icon" src={link.icon} alt="" />
+								</a>
+							))}
+
+							<button
+								type="button"
+								className="contact-section__icon-link contact-section__icon-link--button"
+								aria-label="Back to top"
+								onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+							>
+								<img className="contact-section__icon" src={slideButtonIcon} alt="" />
+							</button>
+						</div>
+
+						<div className="contact-section__card">
+							<h2 className="contact-section__title">CONTACT DETAILS</h2>
+							<div className="contact-section__links">
+								<a href="https://www.linkedin.com/in/janine-sola/" target="_blank" rel="noreferrer">
+									Janine Sola | Linked
+								</a>
+								<a href="mailto:janinemariela03@gmail.com">janinemariela03@gmail.com | Gmail</a>
+								<a href="https://github.com/mjanine" target="_blank" rel="noreferrer">
+									mjanine | Github
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</main>
 	)
 }
