@@ -294,13 +294,13 @@
 .cornerwheel-slider__cert-card--2,
 .cornerwheel-slider__cert-card--4,
 .cornerwheel-slider__cert-card--6 {
-	transform: translateY(1rem);
+	transform: none;
 }
 
 .cornerwheel-slider__cert-card--3,
 .cornerwheel-slider__cert-card--5,
 .cornerwheel-slider__cert-card--7 {
-	transform: translateY(2rem);
+	transform: none;
 }
 
 .cornerwheel-slider__cert-number {
