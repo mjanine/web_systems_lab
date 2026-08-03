@@ -45,12 +45,11 @@
 
 .portfolio-hero__topbar {
 	position: absolute;
-	top: 0.8rem;
+	top: 3rem;
 	inset-inline: 0;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	gap: 1rem;
 	padding-inline: 0.15rem;
 	color: rgba(255, 248, 240, 0.94);
 	letter-spacing: 0.08em;
@@ -58,7 +57,7 @@
 
 .portfolio-hero__line {
 	flex: 1;
-	height: 1px;
+	height: 1.5px;
 	background: rgba(255, 248, 240, 0.92);
 	opacity: 0.95;
 }
@@ -127,12 +126,16 @@
 .project-detail {
 	min-height: 100vh;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 3rem 1.5rem;
+
+	padding: 5rem 1.5rem;
+
 	background: #000000;
-	color: #f5efe4;
+	color: none;
 	width: 100%;
+	box-sizing: border-box;
 }
 
 .project-detail__content {
@@ -149,7 +152,7 @@
 
 .project-detail__title {
 	margin: 0 0 1.25rem;
-	font-size: clamp(3rem, 5vw, 4.7rem);
+	font-size: clamp(rem, 5vw, 4.7rem);
 	line-height: 0.95;
 	letter-spacing: 0.02em;
 	font-weight: 800;
@@ -180,6 +183,65 @@
 	align-items: center;
 	padding: 2rem;
 	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+/* =========================================
+   PROJECT CARDS — TRANSPARENT INSPO STYLE
+   ========================================= */
+
+.project-detail__projects .project-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
+
+/* Project image area */
+.project-detail__projects .project-card__image-wrap,
+.project-detail__projects .project-card__image-container,
+.project-detail__projects .project-card__media {
+    background: rgba(115, 160, 105, 0.22) !important;
+    border-radius: 1.5rem !important;
+    box-shadow: none !important;
+    border: none !important;
+    overflow: hidden;
+}
+
+/* Project images */
+.project-detail__projects .project-card img {
+    background: transparent !important;
+    border-radius: 1.5rem;
+    display: block;
+}
+
+/* Text/details underneath the image */
+.project-detail__projects .project-card__content,
+.project-detail__projects .project-card__info,
+.project-detail__projects .project-card__body {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: #fff5e8;
+    padding: 1rem 0 0;
+}
+
+/* Project title */
+.project-detail__projects .project-card__title {
+    color: #fff5e8 !important;
+    background: transparent !important;
+}
+
+/* Project description */
+.project-detail__projects .project-card__description {
+    color: rgba(245, 239, 228, 0.75) !important;
+    background: transparent !important;
+}
+
+/* Year / small information */
+.project-detail__projects .project-card__year,
+.project-detail__projects .project-card small {
+    color: rgba(245, 239, 228, 0.65) !important;
+    background: transparent !important;
 }
 
 .project-detail__mockup-image {
@@ -654,6 +716,22 @@
 }
 
 @media (max-width: 640px) {
+	.portfolio-nav {
+	gap: 0.75rem;
+	padding: 0.65rem 0.75rem;
+}
+
+.portfolio-nav button {
+	font-size: 0.48rem;
+}
+
+.project-detail__projects {
+	grid-template-columns: 1fr;
+}
+
+.project-detail {
+	padding: 4rem 1rem;
+}
 	.portfolio-page {
 		min-height: 100vh;
 	}
@@ -1005,4 +1083,98 @@
     .contact-card__grid {
         grid-template-columns: 1fr;
     }
+}
+.portfolio-nav {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 10;
+
+	display: flex;
+	align-items: center;
+	gap: 2.2rem;
+
+	padding: 0.75rem 1.5rem;
+
+	width: 100%;
+	box-sizing: border-box;
+	justify-content: flex-end;
+}
+
+.portfolio-nav button {
+	border: 0;
+	background: transparent;
+	padding: 0;
+
+	color: rgba(255, 248, 240, 0.95);
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.65rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+
+	cursor: pointer;
+}
+
+.portfolio-nav button:hover {
+	opacity: 0.7;
+}
+
+.portfolio-nav button:focus-visible {
+	outline: 1px solid #fff8f0;
+	outline-offset: 4px;
+}
+.project-detail__more-button {
+	margin-top: 1.25rem;
+
+	width: 4.5rem;
+	height: auto;
+
+	padding: 0;
+	border: 0;
+	background: transparent;
+
+	display: block;
+	cursor: pointer;
+}
+
+.project-detail__more-button img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.project-detail__more-button:hover {
+	transform: translateX(3px);
+}
+
+.project-detail__more-button:focus-visible {
+	outline: 2px solid #ff925e;
+	outline-offset: 4px;
+}
+.project-detail__projects {
+	width: min(1200px, 100%);
+	margin: 3rem auto 0;
+
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.5rem;
+
+	animation: projectCardsReveal 0.45s ease both;
+}
+
+.project-detail__projects .project-card {
+	min-width: 0;
+}
+
+@keyframes projectCardsReveal {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

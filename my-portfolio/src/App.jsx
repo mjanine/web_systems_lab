@@ -1,10 +1,16 @@
+import { useRef, useState } from 'react'
 import './App.css'
 import backgroundVideo from './bg.mp4'
 import instagramIcon from './instagram.png'
 import messengerIcon from './messenger.png'
 import profileImage from './me.png'
 import pythosentryImage from './Pythosentry.png'
+import moreButton from './morebutton.png'
+import sambastImage from './sambast.png'
+import ersImage from './ers.png'
+import pythoImage from './pytho.png'
 import CornerWheel from './components/cornerwheel'
+import ProjectCard from './components/projectcard'
 
 const markSquares = [
     'portfolio-mark__square--top-left',
@@ -27,6 +33,18 @@ const contactLinks = [
 ]
 
 export default function App() {
+    	const projectRef = useRef(null)
+	const certificationRef = useRef(null)
+	const aboutRef = useRef(null)
+
+	const [showProjects, setShowProjects] = useState(false)
+
+	const scrollToSection = (ref) => {
+		ref.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		})
+	}
     return (
         <main className="portfolio-page">
             <video className="portfolio-page__background-video" autoPlay muted loop playsInline aria-hidden="true">
@@ -35,7 +53,22 @@ export default function App() {
             <div className="portfolio-page__background-overlay" aria-hidden="true" />
 
             <section className="portfolio-hero" aria-label="Portfolio cover">
-                <div className="portfolio-hero__topbar" aria-hidden="true">
+
+	<nav className="portfolio-nav" aria-label="Main navigation">
+		<button type="button" onClick={() => scrollToSection(projectRef)}>
+			PROJECTS
+		</button>
+
+		<button type="button" onClick={() => scrollToSection(certificationRef)}>
+			CERTIFICATION AND LANGUAGES
+		</button>
+
+		<button type="button" onClick={() => scrollToSection(aboutRef)}>
+			ABOUT ME
+		</button>
+	</nav>
+
+	<div className="portfolio-hero__topbar">
                     <span className="portfolio-hero__line" />
                     <span className="portfolio-hero__label"></span>
                 </div>
@@ -52,35 +85,98 @@ export default function App() {
                 </div>
             </section>
 
-            <section className="project-detail" aria-label="Project detail">
-                <div className="project-detail__content">
-                    <div className="project-detail__text">
-                        <h2 className="project-detail__title">PYTHOSENTRY</h2>
-                        <p className="project-detail__description">
-                            PhytoSentry is a mobile application designed for farmers and agricultural workers
-                            to instantly diagnose plant diseases, especially coffee leaf conditions, using
-                            computer vision and TensorFlow Lite machine learning models. It provides real-time
-                            camera analysis, a disease catalog, and a scan history tracker to help monitor crop
-                            health and improve yields.
-                        </p>
-                    </div>
+            <section
+	ref={projectRef}
+	className="project-detail"
+	aria-label="Project detail"
+>
+	<div className="project-detail__content">
+		<div className="project-detail__text">
+			<h2 className="project-detail__title">PYTHOSENTRY</h2>
 
-                    <div className="project-detail__mockup">
-                        <div className="project-detail__mockup-frame">
-                            <img
-                                className="project-detail__mockup-image"
-                                src={pythosentryImage}
-                                alt="PythoSentry mobile app preview"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+			<p className="project-detail__description">
+				PhytoSentry is a mobile application designed for farmers and agricultural workers
+				to instantly diagnose plant diseases, especially coffee leaf conditions, using
+				computer vision and TensorFlow Lite machine learning models. It provides real-time
+				camera analysis, a disease catalog, and a scan history tracker to help monitor crop
+				health and improve yields.
+			</p>
 
-            <CornerWheel />
+			<button
+				type="button"
+				className="project-detail__more-button"
+				onClick={() => setShowProjects((current) => !current)}
+				aria-expanded={showProjects}
+			>
+				<img
+					src={moreButton}
+					alt={showProjects ? 'Hide projects' : 'Show more projects'}
+				/>
+			</button>
+		</div>
+
+		<div className="project-detail__mockup">
+			<div className="project-detail__mockup-frame">
+				<img
+					className="project-detail__mockup-image"
+					src={pythosentryImage}
+					alt="PythoSentry mobile app preview"
+				/>
+			</div>
+		</div>
+	</div>
+                    {showProjects && (
+    <div className="project-detail__projects">
+        <ProjectCard
+            image={pythoImage}
+            year="2025"
+            title="PYTHOSENTRY"
+            languages={[
+                { name: "TypeScript", percent: "92.9%" },
+                { name: "Kotlin", percent: "2.3%" },
+                { name: "Ruby", percent: "2%" },
+                { name: "Swift", percent: "1.7%" },
+                { name: "JavaScript", percent: "1.1%" },
+            ]}
+        />
+
+        <ProjectCard
+            image={ersImage}
+            year="2025"
+            title="EMPLOYEE SYSTEM"
+            languages={[
+                { name: "CSS", percent: "33.9%" },
+                { name: "HTML", percent: "31.8%" },
+                { name: "JavaScript", percent: "18.9%" },
+                { name: "Python", percent: "15.4%" },
+            ]}
+        />
+
+        <ProjectCard
+            image={sambastImage}
+            year="2025"
+            title="SAMBAST"
+            languages={[
+                { name: "Python", percent: "35.2%" },
+                { name: "JavaScript", percent: "29.4%" },
+                { name: "CSS", percent: "19.3%" },
+                { name: "HTML", percent: "16.1%" },
+            ]}
+        />
+    </div>
+)}
+	
+</section>
+            <div ref={certificationRef}>
+	        <CornerWheel />
+           </div>
 
             {/* Profile Bio & Contact Section */}
-            <footer className="contact-section" aria-label="About me contact details">
+            <footer
+            ref={aboutRef}
+            className="contact-section"
+            aria-label="About me contact details"
+        >
                 <div className="accent-line" />
                 
                 <div className="contact-section__container">
