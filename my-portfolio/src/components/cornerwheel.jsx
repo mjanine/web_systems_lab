@@ -60,9 +60,23 @@ const certifications = [
 	},
 ]
 
-const languageTiles = ['PYTHON', 'HTML', 'SQL', 'JAVA']
+const languageTiles = [
+	'HTML',
+	'JAVA',
+	'SQL',
+	'RUBY',
+	'PYTHON',
+	'CSS',
+	'SWIFT',
+	'KOTLIN',
+]
 
-const analyticsTiles = ['POWER BI', 'RAPIDMINER', 'EXCEL']
+const analyticsTiles = [
+	'POWER BI',
+	'RAPIDMINER',
+	'EXCEL',
+	'JUPYTER NOTEBOOK',
+]
 
 export default function CornerWheel() {
 	const [activePage, setActivePage] = useState(0)
@@ -135,26 +149,37 @@ export default function CornerWheel() {
 						</div>
 
 						<div className="cornerwheel-slider__tools-group">
-							<h3 className="cornerwheel-slider__section-label">language</h3>
-							<div className="cornerwheel-slider__tiles cornerwheel-slider__tiles--language">
-								{languageTiles.map((tile) => (
-									<div key={tile} className="cornerwheel-slider__tile cornerwheel-slider__tile--language">
-										{tile}
-									</div>
-								))}
-							</div>
-						</div>
+	<h3 className="cornerwheel-slider__section-label">language</h3>
 
-						<div className="cornerwheel-slider__tools-group">
-							<h3 className="cornerwheel-slider__section-label">data &amp; analytics tools</h3>
-							<div className="cornerwheel-slider__tiles cornerwheel-slider__tiles--tools">
-								{analyticsTiles.map((tile) => (
-									<div key={tile} className="cornerwheel-slider__tile cornerwheel-slider__tile--tools">
-										{tile}
-									</div>
-								))}
-							</div>
-						</div>
+	<div className="cornerwheel-slider__tiles cornerwheel-slider__tiles--language">
+		{languageTiles.map((tile) => (
+			<div
+				key={tile}
+				className="cornerwheel-slider__tile cornerwheel-slider__tile--language"
+			>
+				{tile}
+			</div>
+		))}
+	</div>
+</div>
+
+<div className="cornerwheel-slider__tools-group">
+	<h3 className="cornerwheel-slider__section-label">
+		data &amp; analytics<br />
+		tools
+	</h3>
+
+	<div className="cornerwheel-slider__tiles cornerwheel-slider__tiles--tools">
+		{analyticsTiles.map((tile) => (
+			<div
+				key={tile}
+				className="cornerwheel-slider__tile cornerwheel-slider__tile--tools"
+			>
+				{tile}
+			</div>
+		))}
+	</div>
+</div>
 					</div>
 				</div>
 			</div>
