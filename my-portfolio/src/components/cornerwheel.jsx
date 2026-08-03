@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import slideButtonIcon from '../slidebutton2.png'
-import certificate01 from '../01.png'
-import certificate02 from '../02.png'
-import certificate03 from '../03.png'
-import certificate04 from '../04.png'
-import certificate05 from '../05.png'
-import certificate06 from '../06.png'
-import certificate07 from '../07.png'
+import slideButtonIcon from '../assets/slidebutton2.png'
+import certificate01 from '../assets/01.png'
+import certificate02 from '../assets/02.png'
+import certificate03 from '../assets/03.png'
+import certificate04 from '../assets/04.png'
+import certificate05 from '../assets/05.png'
+import certificate06 from '../assets/06.png'
+import certificate07 from '../assets/07.png'
 
 const certifications = [
 	{
