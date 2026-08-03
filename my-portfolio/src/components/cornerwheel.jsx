@@ -32,31 +32,17 @@ const certifications = [
 	},
 	{
 		number: '04',
-		title: 'Information Technology Specialist in Networking',
-		issuer: '',
-		image: certificate04,
-		imagePosition: 'right center',
-	},
-	{
-		number: '05',
 		title: 'IC3 GS6 Level 1',
 		issuer: '',
 		image: certificate05,
 		imagePosition: 'center bottom',
 	},
 	{
-		number: '06',
+		number: '05',
 		title: 'IT Specialist - Networking',
 		issuer: '',
 		image: certificate06,
 		imagePosition: 'left center',
-	},
-	{
-		number: '07',
-		title: 'C3 Digital Literacy Certification GS6 Level 1',
-		issuer: '',
-		image: certificate07,
-		imagePosition: 'center center',
 	},
 ]
 
