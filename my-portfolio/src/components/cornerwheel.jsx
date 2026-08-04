@@ -101,6 +101,7 @@ export default function CornerWheel() {
 									key={item.number}
 									className={`cornerwheel-slider__cert-card cornerwheel-slider__cert-card--${index + 1}`}
 								>
+									<div className="cornerwheel-slider__cert-card-placeholder" />
 									<span className="cornerwheel-slider__cert-number">{item.number}</span>
 									<div className="cornerwheel-slider__cert-image-wrap">
 										<img

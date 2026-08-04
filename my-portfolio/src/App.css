@@ -251,6 +251,11 @@
     filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.35));
 }
 
+.project-detail__mockup a {
+	display: block; /* Ensures the anchor tag takes up the space of the image */
+	cursor: pointer;
+}
+
 .cornerwheel-slider {
 	min-height: 100vh;
 	padding: 1.75rem 1.5rem 3rem;
@@ -351,6 +356,14 @@
 	flex-direction: column;
 	gap: 0.5rem;
 	color: #f8e7d6;
+	transition: transform 0.3s ease-in-out;
+	position: relative;
+}
+
+.cornerwheel-slider__cert-card:hover {
+	transform: scale(1.25);
+	z-index: 10;
+	cursor: pointer;
 }
 
 .cornerwheel-slider__cert-card--2,

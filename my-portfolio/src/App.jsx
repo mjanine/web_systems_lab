@@ -152,17 +152,28 @@ export default function App() {
             ]}
         />
 
-        <ProjectCard
-            image={sambastImage}
-            year="2025"
-            title="SAMBAST"
-            languages={[
-                { name: "Python", percent: "35.2%" },
-                { name: "JavaScript", percent: "29.4%" },
-                { name: "CSS", percent: "19.3%" },
-                { name: "HTML", percent: "16.1%" },
-            ]}
-        />
+        <a
+    href="https://sambast.onrender.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+        textDecoration: "none",
+        color: "inherit",
+        display: "block",
+    }}
+>
+    <ProjectCard
+        image={sambastImage}
+        year="2025"
+        title="SAMBAST"
+        languages={[
+            { name: "Python", percent: "35.2%" },
+            { name: "JavaScript", percent: "29.4%" },
+            { name: "CSS", percent: "19.3%" },
+            { name: "HTML", percent: "16.1%" },
+        ]}
+    />
+</a>
     </div>
 )}
 	
