@@ -140,19 +140,36 @@ export default function App() {
             ]}
         />
 
-        <ProjectCard
-            image={ersImage}
-            year="2025"
-            title="EMPLOYEE SYSTEM"
-            languages={[
-                { name: "CSS", percent: "33.9%" },
-                { name: "HTML", percent: "31.8%" },
-                { name: "JavaScript", percent: "18.9%" },
-                { name: "Python", percent: "15.4%" },
-            ]}
-        />
+        <a
+    href="http://127.0.0.1:8000/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ textDecoration: "none", color: "inherit" }}
+>
+    <ProjectCard
+        image={ersImage}
+        year="2025"
+        title="EMPLOYEE SYSTEM"
+        languages={[
+            { name: "CSS", percent: "33.9%" },
+            { name: "HTML", percent: "31.8%" },
+            { name: "JavaScript", percent: "18.9%" },
+            { name: "Python", percent: "15.4%" },
+        ]}
+    />
+</a>
 
         <a
+    href="https://sambast.onrender.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+        textDecoration: "none",
+        color: "inherit",
+        display: "block",
+    }}
+>
+    <a
     href="https://sambast.onrender.com"
     target="_blank"
     rel="noopener noreferrer"
@@ -173,6 +190,7 @@ export default function App() {
             { name: "HTML", percent: "16.1%" },
         ]}
     />
+</a>
 </a>
     </div>
 )}
